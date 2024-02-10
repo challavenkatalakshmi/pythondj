@@ -1,0 +1,102 @@
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <h2>Welcome, 
+        {%for s in some%}
+            {% if s.username == user.username %}
+            {{ s.first_name }} {{ s.last_name }}
+            {% if s.profile_picture %}
+                <img src="{{ s.profile_picture.url }}" alt="Profile Picture" style="width:300px;height:300px">
+            {% else %}
+                <h2>No profile picture uploaded</h2>
+            {% endif %}
+            {%endif%}
+        {%endfor%}
+    </h2>
+    <h2>Username: {{ user.username }}</h2>
+    <h2>Email: {{ user.email }}</h2>
+    {% for s in some%}
+    {% if s.username == user.username %}
+        <h2>First Name:{{s.first_name}}</h2>
+        <h2>Last Name:{{s.last_name}}</h2>
+        <h2>Address: {{ s.address_line1 }}, {{ s.city }}, {{ s.state }}, {{ s.pincode }}</h2>
+    {%endif%}
+    {%endfor%}
+
+      
+    
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        img {
+            display: block;
+            margin: 10px 0;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-info {
+            margin-bottom: 20px;
+        }
+
+        .profile-info h2 {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome, 
+            {% for s in some %}
+                {% if s.username == user.username %}
+                    {{ s.first_name }} {{ s.last_name }}
+                    
+                    {% if s.profile_picture %}
+                        <img src="{{ s.profile_picture.url }}" alt="Profile Picture" style="width:300px;height:300px">
+                    {% else %}
+                        <h2>No profile picture uploaded</h2>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </h2>
+        <div class="profile-info">
+            <h2>Username: {{ user.username }}</h2>
+            <h2>Email: {{ user.email }}</h2>
+            {% for s in some %}
+                {% if s.username == user.username %}
+                    <h2>First Name: {{ s.first_name }}</h2>
+                    <h2>Last Name: {{ s.last_name }}</h2>
+                    <h2>Address: {{ s.address_line1 }}, {{ s.city }}, {{ s.state }}, {{ s.pincode }}</h2>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
+
